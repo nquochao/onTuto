@@ -1,0 +1,9 @@
+/bin/
+**/.class
+**/.jar
+**/.metadata
+.classpath
+/.git/
+/.settings/
+**/.project
+
