@@ -1,13 +1,25 @@
 package mypackage.tuto.prototype;
 
-public enum ClansExistants {
-	tonnerre("Clan du Tonnerre"), riviere("Clan de la Riviere"), vent("Clan du Vent"), ombre("Clan de l'Ombre");
+import java.awt.image.BufferedImage;
 
-	ClansExistants(String nameOfClan) {
+public enum ClansExistants {
+	tonnerre("Clan du Tonnerre", "clandutonnerre.png"), riviere("Clan de la Rivière","clandelariviere.png"), vent("Clan du Vent","clanduvent.png"), ombre("Clan de l'Ombre","clandelombre.png");
+
+	ClansExistants(String nameOfClan, String image2) {
 		nom = nameOfClan;
+		image=image2;
 	}
 
 	String nom;
+	String image;
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
 
 	public String getNom() {
 		return nom;

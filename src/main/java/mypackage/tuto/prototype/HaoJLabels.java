@@ -2,10 +2,10 @@ package mypackage.tuto.prototype;
 
 import java.util.ArrayList;
 
-public class HaoJButtons extends ArrayList<HaoJButton>{
+public class HaoJLabels extends ArrayList<HaoJLabel>{
 
 	public void setVisible(Boolean b){
-		for (HaoJButton button: this) {
+		for (HaoJLabel button: this) {
 			button.setVisible(b);
 		}
 	}
