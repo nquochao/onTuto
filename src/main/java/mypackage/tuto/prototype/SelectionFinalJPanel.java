@@ -16,17 +16,16 @@ public class SelectionFinalJPanel extends AbstractSelectionPanel {
 	protected void showLabels(Position p) {
 		List<String> l=new ArrayList<>();
 		Position offset=new Position(1,1);
-		l.add("Nom du clan");
-		l.add(heros.getClan().getNom());
-		addLine(p, offset, l);
+		l.add("Clan");
+		l.add(heros.getClan().getImage());
+		addImageLine(p, offset, l);
 		l.clear();
 
 		l.add("Type");
 		l.add(heros.getType());
-		addLine(p, offset, l);
-
-
+		addImageLine(p, offset, l);
 		l.clear();
+
 		l.add("Nom");
 		l.add(heros.getName());
 		addLine(p, offset, l);
@@ -34,6 +33,18 @@ public class SelectionFinalJPanel extends AbstractSelectionPanel {
 		super.showLabels(p);
 	}
 
+	private void addImageLine(Position p, Position offset, List<String> l) {
+		int initial=p.getX();
+		int i=0;
+		for(String s: l) {
+		if(i%2==1)addLabelImage(p,s);	
+		else addLabel(p, s);
+		p= p.offsetX(offset.getX());
+		i++;
+		}
+		p= p.offsetY(offset.getY());
+		p.setX(initial);
+}
 		private void addLine(Position p, Position offset, List<String> l) {
 			int initial=p.getX();
 			for(String s: l) {
@@ -56,13 +67,19 @@ public class SelectionFinalJPanel extends AbstractSelectionPanel {
 			p=new Position(x, y);
 				
 	}
-		private void addLabel(Position p, ClansExistants clan) {
-			addLabel(p, "Clan");	
-			p= p.offsetX(1);
-			addLabel(p, clan.getNom());		
-			p= p.offsetY(1);
+		private void addLabelImage(Position p, String value) {
+			GridBagConstraints cs = new GridBagConstraints();
+			cs.fill = GridBagConstraints.HORIZONTAL;
+			int x = p.getX(), y = p.getY();
+			cs.gridx = x;
+			cs.gridy = y;
+			HaoJLabel label= new HaoJLabel("", value, null);
+			this.add(label, cs);
+			label.setVisible(true);
+			p=new Position(x, y);
+				
+	}
 
-		}
 		@Override
 		protected int getLabelsCols() {
 			// TODO Auto-generated method stub
@@ -74,8 +91,8 @@ public class SelectionFinalJPanel extends AbstractSelectionPanel {
 			return "panel/fin";
 		}
 		@Override
-		public StartPanel getNextPanel() {
-			return new StartPanel(frame, heros);
+		public PlayFieldJPanel getNextPanel() {
+			return new PlayFieldJPanel(frame, heros);
 		}
 		@Override
 		protected void updateHeros() {
