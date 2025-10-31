@@ -2,7 +2,7 @@ package mypackage.tuto.prototype.panel;
 
 import javax.swing.JFrame;
 
-import mypackage.tuto.prototype.Chat;
+import mypackage.tuto.prototype.beans.Chat;
 
 public class StartPanel extends AbstractSelectionPanel {
 

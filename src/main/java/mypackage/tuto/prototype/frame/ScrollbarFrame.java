@@ -1,4 +1,4 @@
-package mypackage.tuto.prototype;
+package mypackage.tuto.prototype.frame;
 
 import javax.swing.JFrame;
 	import java.awt.Dimension;

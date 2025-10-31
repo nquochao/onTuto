@@ -5,8 +5,8 @@ import java.awt.GridBagConstraints;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import mypackage.tuto.prototype.Chat;
-import mypackage.tuto.prototype.Position;
+import mypackage.tuto.prototype.beans.Chat;
+import mypackage.tuto.prototype.beans.Position;
 
 public class SelectionClanJPanel extends AbstractSelectionPanel {
 	private static final String INSTRUCTION = "Choisis ton Clan";

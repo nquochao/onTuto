@@ -1,9 +1,8 @@
-package mypackage.tuto.prototype;
+package mypackage.tuto.prototype.panel;
 
 import javax.swing.JFrame;
 
-import mypackage.tuto.prototype.panel.AbstractSelectionPanel;
-import mypackage.tuto.prototype.panel.SelectionClanJPanel;
+import mypackage.tuto.prototype.beans.Chat;
 
 public class PlayFieldJPanel extends AbstractSelectionPanel {
 
@@ -31,6 +30,7 @@ public class PlayFieldJPanel extends AbstractSelectionPanel {
 			return new SelectionClanJPanel(frame,heros);
 		}
 
+		
 
 
 }

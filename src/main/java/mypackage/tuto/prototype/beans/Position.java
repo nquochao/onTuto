@@ -1,4 +1,4 @@
-package mypackage.tuto.prototype;
+package mypackage.tuto.prototype.beans;
 
 public class Position {
 	int x, y;

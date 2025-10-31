@@ -1,4 +1,4 @@
-package mypackage.tuto.prototype;
+package mypackage.tuto.prototype.labels;
 
 import java.awt.Dimension;
 import java.awt.Font;

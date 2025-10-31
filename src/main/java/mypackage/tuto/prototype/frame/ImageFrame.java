@@ -5,17 +5,17 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import mypackage.tuto.prototype.Chat;
+import mypackage.tuto.prototype.beans.Chat;
 import mypackage.tuto.prototype.panel.SelectionClanJPanel;
 
-public class HaoImageFrame extends JFrame {
+public class ImageFrame extends JFrame {
 	private static Logger logger = Logger.getAnonymousLogger();
 	public final static int DEFAULT_BUTTON_NUMBER = 4;
 	Chat heros = new Chat();
 	JPanel panel = new SelectionClanJPanel(this, heros);
-	HaoImageFrame frame=this;
+	ImageFrame frame=this;
 
-	public HaoImageFrame() {
+	public ImageFrame() {
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
 		// BoxLayout layout = new BoxLayout(panel, BoxLayout.Y_AXIS);

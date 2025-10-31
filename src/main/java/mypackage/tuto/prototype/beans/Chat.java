@@ -1,4 +1,4 @@
-package mypackage.tuto.prototype;
+package mypackage.tuto.prototype.beans;
 
 import java.util.logging.Logger;
 

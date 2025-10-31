@@ -1,6 +1,5 @@
 package mypackage.tuto.prototype.panel;
 
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -21,11 +20,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import mypackage.tuto.prototype.Chat;
-import mypackage.tuto.prototype.HaoJLabel;
-import mypackage.tuto.prototype.HaoJLabels;
-import mypackage.tuto.prototype.Position;
-import mypackage.tuto.prototype.frame.ScrollableWrapper;
+import mypackage.tuto.prototype.beans.Chat;
+import mypackage.tuto.prototype.beans.Position;
+import mypackage.tuto.prototype.labels.HaoJLabel;
+import mypackage.tuto.prototype.labels.HaoJLabels;
 
 public abstract class AbstractSelectionPanel extends JPanel {
 

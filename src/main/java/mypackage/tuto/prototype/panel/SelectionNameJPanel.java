@@ -10,8 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JTextField;
 
-import mypackage.tuto.prototype.Chat;
-import mypackage.tuto.prototype.Position;
+import mypackage.tuto.prototype.beans.Chat;
+import mypackage.tuto.prototype.beans.Position;
 
 public class SelectionNameJPanel extends AbstractSelectionPanel {
 	JTextField nameTextField;

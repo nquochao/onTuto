@@ -7,17 +7,17 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import mypackage.tuto.prototype.Chat;
+import mypackage.tuto.prototype.beans.Chat;
 import mypackage.tuto.prototype.panel.StartPanel;
 
-public class HaoTutorialFrame extends JFrame {
+public class TutorialFrame extends JFrame {
 	private static Logger logger = Logger.getAnonymousLogger();
 	public final static int DEFAULT_BUTTON_NUMBER = 4;
 	Chat heros = new Chat();
 	StartPanel panel = new StartPanel(this, heros);
-	HaoTutorialFrame frame=this;
+	TutorialFrame frame=this;
 
-	public HaoTutorialFrame() {
+	public TutorialFrame() {
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		panel.show();
 		setVisible(true);

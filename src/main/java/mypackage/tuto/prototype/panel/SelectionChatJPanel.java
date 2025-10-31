@@ -4,7 +4,7 @@ import java.net.URL;
 
 import javax.swing.JFrame;
 
-import mypackage.tuto.prototype.Chat;
+import mypackage.tuto.prototype.beans.Chat;
 
 public class SelectionChatJPanel extends AbstractSelectionPanel {
 	static final String CHAT_TYPES_RESOURCE = "chats/types";
