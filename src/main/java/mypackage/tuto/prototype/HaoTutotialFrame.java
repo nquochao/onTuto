@@ -9,7 +9,7 @@ public class HaoTutotialFrame extends JFrame {
 	private static Logger logger = Logger.getAnonymousLogger();
 	public final static int DEFAULT_BUTTON_NUMBER = 4;
 	Chat heros = new Chat();
-	JPanel panel = new SelectionClanJPanel(this, heros);
+	JPanel panel = new StartPanel(this, heros);
 	HaoTutotialFrame frame=this;
 
 	public HaoTutotialFrame() {
@@ -18,6 +18,7 @@ public class HaoTutotialFrame extends JFrame {
 		// BoxLayout layout = new BoxLayout(panel, BoxLayout.Y_AXIS);
 		// panel.setLayout(layout);
 		this.setContentPane(panel);
+		setVisible(true);
 	}
 
 	@Override
