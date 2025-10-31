@@ -1,12 +1,14 @@
 package mypackage.tuto.prototype;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import javax.swing.JFrame;
+
+import mypackage.tuto.prototype.panel.AbstractSelectionPanel;
+import mypackage.tuto.prototype.panel.SelectionClanJPanel;
 
 public class PlayFieldJPanel extends AbstractSelectionPanel {
 
-	public PlayFieldJPanel(HaoTutotialFrame haoTutotialFrame, Chat heros) {
-		super(haoTutotialFrame, heros);
+	public PlayFieldJPanel(JFrame frame, Chat heros) {
+		super(frame, heros);
 	}
 
 
@@ -30,10 +32,5 @@ public class PlayFieldJPanel extends AbstractSelectionPanel {
 		}
 
 
-		@Override
-		protected void updateHeros() {
-			// TODO Auto-generated method stub
-			
-		}
 
 }

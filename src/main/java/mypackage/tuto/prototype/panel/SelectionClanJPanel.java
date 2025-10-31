@@ -1,14 +1,19 @@
-package mypackage.tuto.prototype;
+package mypackage.tuto.prototype.panel;
 
 import java.awt.GridBagConstraints;
 
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import mypackage.tuto.prototype.Chat;
+import mypackage.tuto.prototype.Position;
 
 public class SelectionClanJPanel extends AbstractSelectionPanel {
 	private static final String INSTRUCTION = "Choisis ton Clan";
 
-	public SelectionClanJPanel(HaoTutotialFrame frame2, Chat heros2) {
-		super(frame2, heros2);
+	public SelectionClanJPanel(JFrame frame, Chat heros2) {
+		super(frame, heros2);
+		nextPanel=new SelectionChatJPanel(frame, heros);
 
 	}
 
@@ -30,23 +35,23 @@ public class SelectionClanJPanel extends AbstractSelectionPanel {
 		super.showLabels(new Position(x, y));
 	}
 
-	@Override
-	protected void initLabels() {
-
-		for (ClansExistants e : ClansExistants.values()) {
-			HaoJLabel b = new HaoJLabel(e.getNom(), e.getImage(), e);
-
-			labels.add(b);
-
-
-		}
-
-	}
+//	@Override
+//	protected void initLabels() {
+//
+//		for (ClansExistants e : ClansExistants.values()) {
+//			HaoJLabel b = new HaoJLabel(e.getNom(), e.getImage(), e);
+//
+//			labels.add(b);
+//
+//
+//		}
+//
+//	}
 
 
 	@Override
 	protected AbstractSelectionPanel getNextPanel() {
-		return new SelectionChatJPanel(frame, heros);
+		return nextPanel;
 	}
 
 
@@ -55,16 +60,17 @@ public class SelectionClanJPanel extends AbstractSelectionPanel {
 		return 2;
 	}
 
-	@Override
-	public String getLabelsResourcesFolder() {
-		return null;
-	}
 
 	@Override
-	protected void updateHeros() {
-		ClansExistants e=selectedLabel.getClan();
+	protected boolean updateHeros() {
+		//TODO
+		String e=selectedLabel.getImage();
 		heros.setClan(e);
+		return !e.isEmpty();
 		
 	}
-
+	@Override
+	public String getLabelsResourcesFolder() {
+		return  "clans";
+	}
 }

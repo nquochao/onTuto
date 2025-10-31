@@ -1,23 +1,26 @@
-package mypackage.tuto.prototype;
+package mypackage.tuto.prototype.frame;
 
 import java.util.logging.Logger;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class HaoTutotialFrame extends JFrame {
+import mypackage.tuto.prototype.Chat;
+import mypackage.tuto.prototype.panel.SelectionClanJPanel;
+
+public class HaoImageFrame extends JFrame {
 	private static Logger logger = Logger.getAnonymousLogger();
 	public final static int DEFAULT_BUTTON_NUMBER = 4;
 	Chat heros = new Chat();
-	JPanel panel = new StartPanel(this, heros);
-	HaoTutotialFrame frame=this;
+	JPanel panel = new SelectionClanJPanel(this, heros);
+	HaoImageFrame frame=this;
 
-	public HaoTutotialFrame() {
+	public HaoImageFrame() {
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
 		// BoxLayout layout = new BoxLayout(panel, BoxLayout.Y_AXIS);
 		// panel.setLayout(layout);
-		this.setContentPane(panel);
+		frame.setContentPane(panel);
 		setVisible(true);
 	}
 
@@ -25,7 +28,7 @@ public class HaoTutotialFrame extends JFrame {
 	public void setVisible(boolean b) {
 		// TODO Auto-generated method stub
 		super.setVisible(b);
-		frame.getContentPane().setVisible(b);
+		//frame.getContentPane().setVisible(b);
 
 	}
 

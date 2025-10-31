@@ -14,20 +14,11 @@ public class HaoJLabel extends JLabel {
 	
 
 	
-	private ClansExistants clan;
 	private String image;
 
-	public ClansExistants getClan() {
-		return clan;
-	}
 
-	public void setClan(ClansExistants clan) {
-		this.clan = clan;
-	}
-
-	public HaoJLabel(String value, String image, ClansExistants clan) {
+	public HaoJLabel(String value, String image) {
 		super(value);
-		this.clan=clan;
 		setFont(new Font("Arial", Font.PLAIN,20));
 		setHorizontalTextPosition(JLabel.CENTER);
 		setVerticalTextPosition(JLabel.BOTTOM);

@@ -1,17 +1,23 @@
-package mypackage.tuto.prototype;
+package mypackage.tuto.prototype.panel;
 
 import java.net.URL;
+
+import javax.swing.JFrame;
+
+import mypackage.tuto.prototype.Chat;
 
 public class SelectionChatJPanel extends AbstractSelectionPanel {
 	static final String CHAT_TYPES_RESOURCE = "chats/types";
 	
-
-	public SelectionChatJPanel(HaoTutotialFrame frame2, Chat heros2) {
-			super(frame2, heros2);
-	}
-
-
 	
+
+
+
+
+
+	public SelectionChatJPanel(JFrame frame, Chat heros) {
+		super(frame, heros);
+	}
 
 	public URL getLabelsResources() {
 		return this.getClass().getResource("/" + getLabelsResourcesFolder());
@@ -24,7 +30,7 @@ public class SelectionChatJPanel extends AbstractSelectionPanel {
 	@Override
 	protected int getLabelsCols() {
 		// TODO Auto-generated method stub
-		return 1;
+		return 2;
 	}
 
 
@@ -38,8 +44,9 @@ public class SelectionChatJPanel extends AbstractSelectionPanel {
 
 
 	@Override
-	protected void updateHeros() {
+	protected boolean updateHeros() {
 		heros.setType(selectedLabel.getImage());
+		return selectedLabel.getImage()!=null;
 	}
 
 }

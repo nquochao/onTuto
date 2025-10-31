@@ -1,12 +1,14 @@
-package mypackage.tuto.prototype;
+package mypackage.tuto.prototype.panel;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import javax.swing.JFrame;
+
+import mypackage.tuto.prototype.Chat;
 
 public class StartPanel extends AbstractSelectionPanel {
 
-	public StartPanel(HaoTutotialFrame haoTutotialFrame, Chat heros) {
+	public StartPanel(JFrame haoTutotialFrame, Chat heros) {
 		super(haoTutotialFrame, heros);
+		nextPanel=new SelectionClanJPanel(frame,heros);
 	}
 
 
@@ -26,14 +28,13 @@ public class StartPanel extends AbstractSelectionPanel {
 		@Override
 		protected AbstractSelectionPanel getNextPanel() {
 			// TODO Auto-generated method stub
-			return new SelectionClanJPanel(frame,heros);
+			return nextPanel;
 		}
 
 
 		@Override
-		protected void updateHeros() {
-			// TODO Auto-generated method stub
-			
+		protected boolean updateHeros() {
+			return true;
 		}
 
 }

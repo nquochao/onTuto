@@ -1,15 +1,21 @@
-package mypackage.tuto.prototype;
+package mypackage.tuto.prototype.panel;
 
 import java.awt.GridBagConstraints;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import mypackage.tuto.prototype.Chat;
+import mypackage.tuto.prototype.HaoJLabel;
+import mypackage.tuto.prototype.PlayFieldJPanel;
+import mypackage.tuto.prototype.Position;
+
 public class SelectionFinalJPanel extends AbstractSelectionPanel {
 	JTextField nameTextField;
-	public SelectionFinalJPanel(HaoTutotialFrame frame, Chat heros) {
+	public SelectionFinalJPanel(JFrame frame, Chat heros) {
 		super(frame,heros);
 	}
 	@Override
@@ -17,7 +23,7 @@ public class SelectionFinalJPanel extends AbstractSelectionPanel {
 		List<String> l=new ArrayList<>();
 		Position offset=new Position(1,1);
 		l.add("Clan");
-		l.add(heros.getClan().getImage());
+		l.add(heros.getClan());
 		addImageLine(p, offset, l);
 		l.clear();
 
@@ -29,7 +35,10 @@ public class SelectionFinalJPanel extends AbstractSelectionPanel {
 		l.add("Nom");
 		l.add(heros.getName());
 		addLine(p, offset, l);
-
+		l.clear();
+		l.add("Genre");
+		l.add(heros.getGender());
+		addLine(p, offset, l);
 		super.showLabels(p);
 	}
 
@@ -37,7 +46,9 @@ public class SelectionFinalJPanel extends AbstractSelectionPanel {
 		int initial=p.getX();
 		int i=0;
 		for(String s: l) {
-		if(i%2==1)addLabelImage(p,s);	
+		if(i%2==1) {
+			addLabelImage(p,s);	
+		}
 		else addLabel(p, s);
 		p= p.offsetX(offset.getX());
 		i++;
@@ -73,9 +84,12 @@ public class SelectionFinalJPanel extends AbstractSelectionPanel {
 			int x = p.getX(), y = p.getY();
 			cs.gridx = x;
 			cs.gridy = y;
-			HaoJLabel label= new HaoJLabel("", value, null);
-			this.add(label, cs);
-			label.setVisible(true);
+			
+			if(value!=null) {
+				HaoJLabel label= new HaoJLabel("", value);
+				this.add(label, cs);
+				label.setVisible(true);
+			}
 			p=new Position(x, y);
 				
 	}
@@ -95,8 +109,8 @@ public class SelectionFinalJPanel extends AbstractSelectionPanel {
 			return new PlayFieldJPanel(frame, heros);
 		}
 		@Override
-		protected void updateHeros() {
-			
+		protected boolean updateHeros() {
+			return true;
 		}
 
 }

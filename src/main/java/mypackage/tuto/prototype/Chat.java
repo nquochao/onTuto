@@ -3,7 +3,15 @@ package mypackage.tuto.prototype;
 import java.util.logging.Logger;
 
 public class Chat {
-	ClansExistants clan;
+	String clan;
+	public String getClan() {
+		return clan;
+	}
+
+	public void setClan(String clan) {
+		this.clan = clan;
+	}
+
 	String type, name;
 	public String getType() {
 		return type;
@@ -15,14 +23,6 @@ public class Chat {
 
 	private static Logger logger = Logger.getAnonymousLogger();
 
-	public ClansExistants getClan() {
-		return clan;
-	}
-
-	public void setClan(ClansExistants clan) {
-		this.clan = clan;
-		logger.info("Le heros est dorénavant membre du clan "+ clan.getNom());
-	}
 
 	public void setType(String type) {
 		this.type=type;
@@ -39,7 +39,17 @@ public class Chat {
 		
 		String result= "type: "+type+sep;
 				result+="name: "+name+ sep;
-		if(clan!=null) result+="clan: "+ clan.getNom();
+		if(clan!=null) result+="clan: "+ clan;
 		return result;
+	}
+String genre;
+	public void setGenre(String genre) {
+		this.genre=genre;
+		
+	}
+
+	public String getGender() {
+		// TODO Auto-generated method stub
+		return genre;
 	}
 }

@@ -1,8 +1,9 @@
-package mypackage.tuto.prototype;
+package mypackage.tuto.prototype.panel;
 
+import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.LayoutManager;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
@@ -16,27 +17,51 @@ import java.util.Iterator;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+import mypackage.tuto.prototype.Chat;
+import mypackage.tuto.prototype.HaoJLabel;
+import mypackage.tuto.prototype.HaoJLabels;
+import mypackage.tuto.prototype.Position;
+import mypackage.tuto.prototype.frame.ScrollableWrapper;
 
 public abstract class AbstractSelectionPanel extends JPanel {
 
 	protected static Logger logger = Logger.getAnonymousLogger();
-	protected HaoTutotialFrame frame;
+	protected JFrame frame;
 	protected Chat heros;
 	HaoJLabels labels = new HaoJLabels();
 	Boolean start;
 	Position p=new Position(0,0);
 	HaoJLabel selectedLabel;
-	public AbstractSelectionPanel(HaoTutotialFrame fram, Chat chat) {
+	protected AbstractSelectionPanel nextPanel;
+	JPanel contentPane;
+	public AbstractSelectionPanel(JFrame fram, Chat chat) {
 		start=false;
 		this.frame = fram;
+		
 		setLayout(new GridBagLayout());
 		if(chat!=null)this.heros = chat;
 		else heros=new Chat();
-		
+
+        JScrollPane scrollPane = new JScrollPane(this);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setBounds(30, 30, 1200, 800);
+        contentPane = new JPanel(null);
+        contentPane.setPreferredSize(new Dimension(1200, 800));
+        contentPane.add(scrollPane);
+
+        
 		initLabels();
 		showLabels(p);
 		addEventToLabels();
+	}
+	public void show() {
+		frame.setContentPane(contentPane);
+
 	}
 	protected void initLabels() {
 		URL url = getLabelsResources();
@@ -65,7 +90,7 @@ public abstract class AbstractSelectionPanel extends JPanel {
 			logger.info("Image : " + image);
 			if (namefile.toLowerCase().endsWith("png")) {
 				String value=namefile.replaceFirst("[.][^.]+$", "");
-				HaoJLabel label = new HaoJLabel(value, image, null);
+				HaoJLabel label = new HaoJLabel(value, image);
 				labels.add(label);
 			}
 		}
@@ -81,17 +106,6 @@ public abstract class AbstractSelectionPanel extends JPanel {
 		super();
 	}
 
-	public AbstractSelectionPanel(LayoutManager layout) {
-		super(layout);
-	}
-
-	public AbstractSelectionPanel(boolean isDoubleBuffered) {
-		super(isDoubleBuffered);
-	}
-
-	public AbstractSelectionPanel(LayoutManager layout, boolean isDoubleBuffered) {
-		super(layout, isDoubleBuffered);
-	}
 
 
 
@@ -122,13 +136,18 @@ public abstract class AbstractSelectionPanel extends JPanel {
 		label.addMouseListener(new MouseListener() {
 
 			private void bJouerPressed() {
-				labels.setVisible(false);
-				/*TODO*/
 				selectedLabel=label;
-				updateHeros();
+				boolean b=updateHeros();
+				if(!b) {
+					logger.info("Tu dois bien remplir les caractéristiques de ton chat");
+					return; 
+				}
 				logger.info(heros.toString());
+				/*TODO*/
 				AbstractSelectionPanel panel = getNextPanel(); 
-				frame.setContentPane(panel);
+				panel.show();
+				
+				//frame.setContentPane(panel);
 				frame.setVisible(true);
 			}
 
@@ -171,5 +190,7 @@ public abstract class AbstractSelectionPanel extends JPanel {
 
 	protected abstract AbstractSelectionPanel getNextPanel();
 	protected abstract int getLabelsCols();
-	protected abstract void updateHeros() ;
+	protected boolean updateHeros() {
+		return true;
+	}
 }
